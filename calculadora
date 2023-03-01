@@ -1,0 +1,122 @@
+import java.util.*;
+
+
+public class Calculadora {
+    public static void main(String[] args) {
+        
+        try(Scanner scan = new Scanner(System.in)){
+
+            String pergunta;
+            String multiplicar = "multiplicar";
+            String somar = "somar";
+            String subtrair = "subtrair";
+            String dividir = "dividir";
+            String matriz  = "matriz";
+
+            float resultado;
+            float a, b;
+
+            System.out.println("Digite uma operação, somar, subtrair, multiplicar, dividir.");
+            pergunta = scan.next();
+
+
+            if(pergunta.equals(somar)){
+
+                System.out.println("digite um número: ");
+                a = scan.nextInt();
+
+                System.out.println("Digite mais um número: ");
+                b = scan.nextInt();
+
+                resultado = somar(a, b);
+                System.out.println("O resultado da soma de " + a + " + " +  b + " e " + resultado);
+
+            }else if(pergunta.equals(multiplicar)){
+
+                System.out.println("digite um número: ");
+                a = scan.nextInt();
+
+                System.out.println("Digite mais um número: ");
+                b = scan.nextInt();
+
+                resultado = multiplicar(a, b);
+                System.out.println("A multiplicação de " + a + " + " + b +  " é " + resultado);
+
+            } else if (pergunta.equals(subtrair)){
+
+                System.out.println("digite um número: ");
+                a = scan.nextInt();
+
+                System.out.println("Digite mais um número: ");
+                b = scan.nextInt();
+
+                resultado = subtrair(a, b);
+                System.out.println("A subtração de " + a + " + " + b +  " é " + resultado);
+
+            }else if(pergunta.equals(dividir)){
+
+                System.out.println("digite um número: ");
+                a = scan.nextInt();
+
+                System.out.println("Digite mais um número: ");
+                b = scan.nextInt();
+
+                resultado = dividir(a, b);
+                System.out.println("A divisão de " + a + " + " + b +  " é " + resultado);
+
+            }else if(pergunta.equals(matriz)){
+            
+                System.out.println("Qual o tamanho da coluna que vc deseja? ");
+                int colunas = scan.nextInt();
+
+                System.out.println("Qual o a quantidade de linhas voce deseja? ");
+                int linhas = scan.nextInt();
+
+                resultado = matriz(colunas, linhas);
+
+                System.out.println("resultado: " + resultado);
+            }else{
+                System.out.println("Nenhuma opção selecionada.");
+            }
+
+        }
+    }
+
+    public static float somar(float a, float b){
+        return a + b;
+    }
+    public static float subtrair(float a, float b){
+        return a - b;
+    }
+    public static float multiplicar(float a, float b){
+        return a * b;
+    }
+    public static float dividir(float a, float b){
+        return a / b;
+    }
+    public static float matriz(int colunas, int linhas){
+        
+
+        Random random = new Random();
+        int Array[][] = new int[linhas][colunas];
+        
+        for(int i = 0; i < Array.length; i++){
+            for(int j = 0; j < Array[i].length; j++){
+                Array[i][j] = random.nextInt(26);
+            }
+        }
+        System.out.println("O resultado da matriz é: ");
+        for (int[] linha : Array) {
+            for (int coluna : linha) {
+                     System.out.print(coluna);
+            }
+            System.out.println("\n");
+        }
+
+        return linhas;
+
+    }
+
+
+
+}
